@@ -7,4 +7,27 @@
     border: 2px solid gray;
     background-color: white;
     z-index: 3;
+
+    .empty-cart-items{
+        height: 85%;
+        // border: 1px dashed blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .cart-items-list{
+        height: 85%;
+        // border: 1px dashed red;
+        overflow-y: auto;
+    }
+
+    .button-div{
+        padding: 5px;
+        text-align: center;
+    }
+
+
 }
