@@ -35,3 +35,10 @@ export const removeItemFromCart = (cartItems, itemToBeRemoved) => {
         }
     })
 }
+
+export const calculateItemsCount = (cartItems) => {
+
+    return cartItems.reduce((actualCount, item) => {
+        return actualCount + item.quantity
+    }, 0)
+}
