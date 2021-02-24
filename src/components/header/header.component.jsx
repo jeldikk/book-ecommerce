@@ -2,10 +2,15 @@ import React from "react";
 
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+// import {Button} from 'react-bootstrap'
 
 import {toggleCartDropDown} from "../../redux/cart/cart.actions"
+import {calculateItemsCount} from "../../redux/cart/cart.utils"
 
 import CartIcon from "../cart-icon/cart-icon.component"
+import CartDropdown from "../cart-dropdown/cart-dropdown.component"
+
+import {FaShoppingCart} from "react-icons/fa"
 
 import {
     Navbar,
@@ -16,7 +21,7 @@ import {
     Container,
 } from "react-bootstrap";
 
-const Header = ({toggleCartDropDown}) => {
+const Header = ({toggleCartDropDown, itemCount, hidden}) => {
 
     const onSearchHandle = (event) => {
         event.preventDefault();
@@ -32,7 +37,8 @@ const Header = ({toggleCartDropDown}) => {
                     <Link className="navbar-brand" to="/">Books E-commerce</Link>
                     <Nav className="ml-auto">
                         <Link className="nav-link" to="/books">Books</Link>
-                        <Link className="nav-link" to="#" onClick={() => toggleCartDropDown()}>cart</Link>
+                        <Button variant="warning" onClick={() => toggleCartDropDown()}><FaShoppingCart /> Cart{`(${itemCount})`}</Button>
+                        
                     </Nav>
                     {/* <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -41,13 +47,15 @@ const Header = ({toggleCartDropDown}) => {
                     {/* <Cart /> */}
                 </Container>
             </Navbar>
+            { hidden ? null : <CartDropdown />}
         </header>
     );
 };
 
 const mapStateToProps = (state) => {
     return {
-        hidden: state.cart.hidden
+        hidden: state.cart.hidden,
+        itemCount: calculateItemsCount(state.cart.cartItems)
     }
 }
 
