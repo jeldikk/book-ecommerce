@@ -1,12 +1,16 @@
 import React from 'react'
 import {Button} from 'react-bootstrap'
 
+import {connect} from 'react-redux'
+
 import StarRatings from 'react-star-ratings'
+
+import {addToCart} from "../../redux/cart/cart.actions"
 
 const TITLE_LENGTH = 30;
 const AUTHORS_LENGTH = 30;
 
-const BookRow = ({book, sno}) => {
+const BookRow = ({book, sno, addToCart}) => {
 
     const {authors, average_rating, bookID, isbn, language_code, price, ratings_count, title} = book
 
@@ -26,9 +30,15 @@ const BookRow = ({book, sno}) => {
                 }
             </td>
             <td>{ratings_count}</td>
-            <td className="text-center"><Button variant="primary">Add to cart</Button></td>
+            <td className="text-center"><Button variant="primary" onClick={() => addToCart(book)}>Add to cart</Button></td>
         </tr>
     )
 }
 
-export default BookRow
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: (item) => dispatch(addToCart(item))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(BookRow)
