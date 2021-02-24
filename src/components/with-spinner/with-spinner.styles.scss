@@ -1,0 +1,16 @@
+.spinner-container{
+    position: absolute;
+    height: 99vh;
+    width: 99vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // font-size: 3;
+    
+    .spinner-border{
+        width: 5rem;
+        height: 5rem;
+        font-size: 2rem;
+    }
+
+}
