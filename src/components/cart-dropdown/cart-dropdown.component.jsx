@@ -8,10 +8,14 @@ import {Button} from 'react-bootstrap'
 
 import {connect} from 'react-redux'
 
-import {calculateItemsCount} from "../../redux/cart/cart.utils"
-import {toggleCartDropDown} from "../../redux/cart/cart.actions"
+import DropdownBookCard from "../dropdown-book-card/dropdown-book-card.component"
 
-const CartDropdown = ({itemsCount, toggleCartDropDown}) => {
+import {calculateItemsCount} from "../../redux/cart/cart.utils"
+import {toggleCartDropDown, clearCart} from "../../redux/cart/cart.actions"
+
+const CartDropdown = ({itemsCount, items, toggleCartDropDown, clearCart}) => {
+
+    console.log(items);
 
     const history = useHistory();
 
@@ -30,11 +34,14 @@ const CartDropdown = ({itemsCount, toggleCartDropDown}) => {
                 </div>
                 :
                 <div className="cart-items-list">
-
+                    {
+                        items.map((item) => <DropdownBookCard key={item.bookID} selectedBook={item} />)
+                    }
                 </div>
             }
             <div className="button-div">
                 <Button variant="success" disabled={itemsCount === 0 ? true : false} onClick={onCheckoutClickHandler}>Checkout Items</Button>
+                <Button variant="danger" disabled={itemsCount === 0 ? true : false} onClick={() => clearCart() }>Clear Cart</Button>
             </div>
             
         </div>
@@ -43,14 +50,18 @@ const CartDropdown = ({itemsCount, toggleCartDropDown}) => {
 
 const mapStateToProps = (state) => {
     return {
-        itemsCount: calculateItemsCount(state.cart.cartItems)
+        itemsCount: calculateItemsCount(state.cart.cartItems),
+        items: state.cart.cartItems,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        toggleCartDropDown: () => dispatch(toggleCartDropDown())
+        toggleCartDropDown: () => dispatch(toggleCartDropDown()),
+        clearCart: ()=>dispatch(clearCart()),
     }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartDropdown);
+
+

@@ -1,10 +1,18 @@
+
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+
+$cart-dropdown-border: gray;
+
 .cart-dropdown{
     position: absolute;
     top: 50px;
     right:380px;
     height: 400px;
     width: 300px;
-    border: 2px solid gray;
+    border: 2px solid $cart-dropdown-border;
     background-color: white;
     z-index: 3;
 
@@ -26,7 +34,25 @@
 
     .button-div{
         padding: 5px;
-        text-align: center;
+        // text-align: center;
+        display: flex;
+        justify-content: space-around;
+
+    }
+
+    //@media screen and (min-width: 480px and max-width: 772)
+
+    //@include media-breakpoin
+    @include media-breakpoint-only(md){
+        right: 100px;
+    }
+
+    @include media-breakpoint-only(sm){
+        right: 65px;
+    }
+
+    @include media-breakpoint-only(xs){
+        right: 10px;
     }
 
 
