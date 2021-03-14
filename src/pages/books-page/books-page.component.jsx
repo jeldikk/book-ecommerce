@@ -8,11 +8,14 @@ import BooksList from "../../components/books-list/books-list.component";
 import Pagination from "../../components/pagination/pagination.component";
 import SearchSortForm from "../../components/search-sort-form/search-sort-form.component"
 
+import BooksCardContainer from "../../components/books-card-container/books-card-container.component"
+
 import withSpinner from "../../components/with-spinner/with-spinner.component";
 
 export const ITEMS_PER_PAGE = 10;
 
 const BooksListWithSpinner = withSpinner(BooksList);
+const BooksCardContainerWithSpinner = withSpinner(BooksCardContainer)
 
 const Bookspage = () => {
   const [loading, setLoading] = useState(true);
@@ -50,7 +53,9 @@ const Bookspage = () => {
   return (
     <div className="books-page">
       <SearchSortForm setSearchSortData={setFormData} />
-      <BooksListWithSpinner isLoading={loading} booksArray={booksArraySlice} currPage={currPage} />
+      {/* <BooksListWithSpinner isLoading={loading} booksArray={booksArraySlice} currPage={currPage} /> */}
+
+      <BooksCardContainerWithSpinner isLoading={loading} booksList={booksArraySlice} />
 
       {!loading ? (
         <Pagination
