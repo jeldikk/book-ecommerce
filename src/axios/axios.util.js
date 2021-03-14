@@ -7,6 +7,7 @@ export const fetchBookData = async () => {
     }
 
     const result = await axios(config);
+    //fetch(config.url)
     
     return result
 }
