@@ -1,0 +1,50 @@
+.book-card{
+    margin: 10px;
+    .card-header{
+        display: flex;
+
+        .rating{
+            text-align: center;
+            width: 30%;
+
+            .avg-rating{
+                font-size: 3rem;
+            }
+        }
+
+        .details{
+            flex-grow: 1;
+            padding: 10px;
+
+            .title{
+                font-weight: bold;
+                // overflow-x: hidden;
+                // white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            .authors{
+                color: gray;
+            }
+
+            .lang-ratingcount{
+                // display: flex;
+                // justify-content: space-around;
+                
+                
+            }
+
+        }
+
+        .price-addtocart{
+            width: 20%;
+            // text-align: center;
+            display: flex;
+            flex-direction: column;
+            .price{
+                font-size: 2rem;
+                flex-grow: 1;
+            }
+        }
+    }
+}
