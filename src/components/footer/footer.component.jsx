@@ -8,7 +8,7 @@ const Footer = () => {
 
 
     return (
-        <div className="footer fixed-bottom">
+        <div className="footer">
             Made with React + bootstrap + redux
         </div>
     )
