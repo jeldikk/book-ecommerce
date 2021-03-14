@@ -13,6 +13,12 @@ export const addToCart = (item) => {
     }
 }
 
+export const clearCart = ()=>{
+    return {
+        type: CartActionTypes.CLEAR_CART,
+    }
+}
+
 export const removeFromCart = (item) => {
     return {
         type: CartActionTypes.REMOVE_FROM_CART,
