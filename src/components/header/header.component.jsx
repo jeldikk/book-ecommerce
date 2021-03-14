@@ -29,6 +29,11 @@ const Header = ({toggleCartDropDown, itemCount, hidden}) => {
         console.log('search functionality')
     }
 
+    const buttonClickHandler = function(event){
+        
+        toggleCartDropDown();
+    }
+
 
     return (
         <header className="header fixed-top">
@@ -37,7 +42,7 @@ const Header = ({toggleCartDropDown, itemCount, hidden}) => {
                     <Link className="navbar-brand" to="/">Books E-commerce</Link>
                     <Nav className="ml-auto">
                         <Link className="nav-link" to="/books">Books</Link>
-                        <Button variant="warning" onClick={() => toggleCartDropDown()}><FaShoppingCart /> Cart{`(${itemCount})`}</Button>
+                        <Button variant="warning" onClick={buttonClickHandler}><FaShoppingCart /> Cart{`(${itemCount})`}</Button>
                         
                     </Nav>
                     {/* <Form inline>
@@ -47,7 +52,7 @@ const Header = ({toggleCartDropDown, itemCount, hidden}) => {
                     {/* <Cart /> */}
                 </Container>
             </Navbar>
-            { hidden ? null : <CartDropdown />}
+            { hidden ? null : <CartDropdown clickX={0} clickY={0} />}
         </header>
     );
 };
