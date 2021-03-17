@@ -2,6 +2,8 @@ import React from 'react'
 
 import ReactPaginate from 'react-paginate'
 
+import "./pagination.styles.scss"
+
 const Pagination = ({...otherProps}) => {
 
     // const {pageCount=10,pageRangeDisplayed=3, marginPagesDisplayed=3} = otherProps
