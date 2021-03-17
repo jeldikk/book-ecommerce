@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {Button, Card} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import StarRatings from 'react-star-ratings'
@@ -19,7 +20,7 @@ const BookCard = ({book, addToCart}) => {
                         {average_rating}
                     </div>
                     <div className="stars">
-                        <StarRatings rating={typeof average_rating === 'number' ? average_rating : 0} starRatedColor={average_rating > 3.5 ? 'green' : 'red'} starDimension="15px" starSpacing="5px" numberOfStars={5} />
+                        <StarRatings rating={typeof average_rating === 'number' ? average_rating : 0} starRatedColor={average_rating > 3.5 ? 'green' : 'red'} starDimension="20px" starSpacing="2px" numberOfStars={5} />
                     </div>
                 </div>
 
@@ -43,7 +44,10 @@ const BookCard = ({book, addToCart}) => {
                     <div className="price">
                     &#8377;{price}
                     </div>
-                    <Button variant="primary" size="sm" onClick={() => addToCart(book)}>Add to cart</Button>
+                    <Link to={`/books/${bookID}`}>
+                        <Button variant="info" size="sm">Show more</Button>
+                    </Link>
+                    <Button className="mt-1" variant="primary" size="sm" onClick={() => addToCart(book)}>Add to cart</Button>
                 </div>
                
             </Card.Header>
