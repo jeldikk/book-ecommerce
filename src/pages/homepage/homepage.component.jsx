@@ -5,12 +5,16 @@ import "./homepage.styles.scss"
 const Homepage = () => {
     return (
         <div className="homepage">
-            This is just a homepage,
-            this page contains basic introduction on how to use applciation and different features implemented in it
+            <h2 className="title">
+                Books E-Commerce web application
+            </h2>
             <br />
-            Proper designing and laying out of this page is yet to be decided.
             <br />
-            <br />
+            <p>
+                This is pseudo frontend web application made for a ecs hackathon hiring challenge contending for frontend developer.
+                <br />
+                
+            </p>
 
         </div>
     )
