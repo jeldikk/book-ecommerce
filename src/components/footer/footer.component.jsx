@@ -4,11 +4,8 @@ import "./footer.styles.scss"
 
 const Footer = () => {
 
-
-
-
     return (
-        <div className="footer">
+        <div className="footer fixed-bottom">
             Made with React + bootstrap + redux
         </div>
     )
