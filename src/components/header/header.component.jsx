@@ -52,7 +52,7 @@ const Header = ({toggleCartDropDown, itemCount, hidden}) => {
                     {/* <Cart /> */}
                 </Container>
             </Navbar>
-            { hidden ? null : <CartDropdown clickX={0} clickY={0} />}
+            { hidden ? null : <CartDropdown />}
         </header>
     );
 };
