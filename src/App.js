@@ -17,6 +17,9 @@ const BookPage = React.lazy(() => import("./pages/book-page/book-page.page"));
 // import Checkoutpage from "./pages/checkout-page/checkout.page.jsx"
 const Checkoutpage = React.lazy(() => import("./pages/checkout-page/checkout.page"));
 
+// import NotFoundUrl from "./pages/not-found/not-found.page"
+const NotFoundUrl = React.lazy(() => import("./pages/not-found/not-found.page"))
+
 function App() {
   
   return (
@@ -32,6 +35,7 @@ function App() {
           <Route exact path="/books" component={Bookspage} />
           <Route exact path="/books/:bookid" component={BookPage} />
           <Route exact path="/checkout" component={Checkoutpage} />
+          {/* <Route exact component={NotFoundUrl} /> */}
         </Suspense>
       </main>
       <Footer />
