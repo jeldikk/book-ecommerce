@@ -1,12 +1,14 @@
-import React, {Suspense} from 'react'
+import React, {Suspense, useEffect} from 'react'
 import './App.scss';
 
 import {Route, Switch} from "react-router-dom"
-
+import {useDispatch} from 'react-redux'
 import {Helmet} from 'react-helmet'
 
 import Header from "./components/header/header.component"
 import Footer from "./components/footer/footer.component"
+
+import {fetchBooksData} from "./redux/books/books.actions"
 
 // import Homepage from "./pages/homepage/homepage.component"
 const Homepage = React.lazy(() => import("./pages/homepage/homepage.component"));
@@ -20,8 +22,17 @@ const Checkoutpage = React.lazy(() => import("./pages/checkout-page/checkout.pag
 // import NotFoundUrl from "./pages/not-found/not-found.page"
 const NotFoundUrl = React.lazy(() => import("./pages/not-found/not-found.page"))
 
+
+
 function App() {
+
+  const dispatch = useDispatch();
   
+  useEffect(()=>{
+    dispatch(fetchBooksData());
+
+  }, [])
+
   return (
     <div className="app">
       <Helmet>
