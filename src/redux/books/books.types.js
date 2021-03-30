@@ -1,0 +1,9 @@
+
+const BooksActionTypes = {
+    SET_BOOK_DB: 'SET_BOOK_DB',
+    FETCHING_BOOK_DATA: 'FETCHING_BOOK_DATA',
+    SUCCESS_FETCHING_DATA: 'SUCCESS_FETCHING_DATA',
+    ERROR_FETCHING_DATA: 'ERROR_FETCHING_DATA'
+}
+
+export default BooksActionTypes
