@@ -11,6 +11,8 @@ Here is the deployment link for demo ([Click Here](https://books-ecommerce-jeldi
 1. code splitting using react lazy and suspense
 2. pagination to columnar navigation over the books data
 3. card tiles of book information with more details and add to cart functionality
+4. fetch books data on page load using thunk
+5. Can referesh page from a books/ route, which will then load content in App Component and waits for books redux store loading property
 
 **To be implemented**
 ---
